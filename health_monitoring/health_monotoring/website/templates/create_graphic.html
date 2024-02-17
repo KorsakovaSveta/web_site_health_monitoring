@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "col-md-6 offset-md-3">
+{% if user.is_authenticated %}
+<h1>График</h1>
+<img src="{% url 'create_graphic' %}">
+<!-- <img src = "{{ graph_url }}" alt = "График"> -->
+<br/><br/>
+<a href="{% url 'manipulating_with_indicators' %}" class="btn btn-secondary">Назад</a>
+
+{% endif %}
+
+  {% endblock %}

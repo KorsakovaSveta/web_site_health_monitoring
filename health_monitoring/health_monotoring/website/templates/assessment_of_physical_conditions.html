@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "col-md-6 offset-md-3">
+{% if user.is_authenticated %}
+<h1>Оценка физического состояния</h1>
+<table class="table table-striped table-hover table-bordered">
+   
+      
+      <tr>
+        
+        <th scope="col"></th>
+        <th scope="col">Рост</th>
+        <th scope="col">Вес</th>
+        <th scope="col">Средней пульс</th>
+        <th scope="col">Среднее количество шагов</th>
+        <th scope="col">Среднее пройденное расстояние</th>
+        
+      </tr>
+      {% if values %}
+      {% for value in values %}
+      <tr>
+          <td></td>
+          <td>{{ value.height }}</td>
+          <td>{{ value.weight }}</td>
+          <td>{{ value.pulse }}</td>
+          <td>{{ value.steps }}</td>
+          <td>{{ value.distance }}</td>
+      </tr>
+     {% endfor %}
+    {% endif %}
+    <tr>
+        <th>Оценка</th>
+        
+        {% for assessment in assessments %}
+        
+        <td>{{ assessment }}</td>
+    
+        {% endfor %}
+    </tr>     
+   
+</table>
+
+<br/>
+<a href="{% url 'manipulating_with_indicators' %}" class="btn btn-secondary">Назад</a>
+{% endif %}
+
+  {% endblock %}

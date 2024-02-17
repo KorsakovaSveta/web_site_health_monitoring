@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "col-md-6 offset-md-3">
+
+{% if user.is_authenticated %}
+
+<h1>Generated values</h1>
+<!-- {% if body_builders %}
+    {% for body_builder in body_builders  %}
+        {{body_builder}}<br/>
+    {% endfor %}
+   
+{% endif %} -->
+
+{% if physical_infos %}
+    {% for physical_info in physical_infos  %}
+        {{physical_info}}<br/>
+    {% endfor %}
+{% endif %}
+<br/>
+{% if fitness_bracelets %}
+    {% for fitness_bracelet in fitness_bracelets  %}
+        {{fitness_bracelet}}<br/>
+    {% endfor %}
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

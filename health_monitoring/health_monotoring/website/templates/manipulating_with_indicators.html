@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class = "col-md-6 offset-md-3">
+    {% if user.is_authenticated %}
+   
+    <h1>Мониторинг физических показателей</h1>
+
+   
+    <!-- <img src="{{ graph_path.graph.url }}" alt="График пульса"> -->
+    <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+        <button type="button" class="btn btn-primary"><a class="dropdown-item" href="{% url 'assessment_of_physical_conditions' %}">Оценка физического состояния</a></button><br/>
+        <button type="button" class="btn btn-primary"><a class="dropdown-item" href="{% url 'recomendation' %}">Рекомендации</a></button><br/>
+        
+        
+        <div class="btn-group dropend" role="group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Статистика
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'table' %}">Таблица</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_graphic' %}">График</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_diagram_for_pulse' %}">Диаграмма пульса</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_diagram_for_steps' %}">Диаграмма шагов</a></li>           
+          </ul>
+        </div>
+        
+    </div>
+ 
+    
+
+{% endif %}
+
+{% endblock %}
